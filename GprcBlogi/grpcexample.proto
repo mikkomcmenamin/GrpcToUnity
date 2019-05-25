@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package grpcexample;
+
+service UnityService {
+    rpc GetId (IdRequest) returns (IdResponse) {
+    }
+}
+
+message IdRequest {
+    string name = 1;
+}
+
+message IdResponse {
+    int32 id = 1;
+}
+
+
+
+

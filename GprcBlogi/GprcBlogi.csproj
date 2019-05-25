@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.7.0" />
+    <PackageReference Include="Grpc" Version="1.20.0" />
+    <PackageReference Include="Grpc.Tools" Version="1.20.0" />
+  </ItemGroup>
+
+  <Target Name="PreBuildWindows" BeforeTargets="CoreCompile">
+      <ItemGroup>
+          <Compile Remove="Generated/*$(DefaultLanguageSourceExtension)" />
+      </ItemGroup>
+  </Target>
+
+  <ItemGroup>
+        <Protobuf Include="grpcexample.proto" OutputDir="$(ProjectDir)Generated" />
+        <Folder Include="Generated" />
+  </ItemGroup>
+
+
+
+</Project>
